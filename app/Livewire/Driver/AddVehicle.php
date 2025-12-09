@@ -12,12 +12,16 @@ class AddVehicle extends Component
     public $registration_number;
     public $year;
 
-    protected $rules = [
-        'make' => 'required|string|max:255',
-        'model' => 'required|string|max:255',
-        'registration_number' => 'required|string|unique:vehicles,registration_number|max:255',
-        'year' => 'required|integer|min:1900|max:' . (date('Y') + 1),
-    ];
+    // Define rules as a method
+    public function rules()
+    {
+        return [
+            'make' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'registration_number' => 'required|string|unique:vehicles,registration_number|max:255',
+            'year' => 'required|integer|min:1900|max:' . (date('Y') + 1),
+        ];
+    }
 
     public function save()
     {

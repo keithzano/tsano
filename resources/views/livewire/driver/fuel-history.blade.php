@@ -22,8 +22,8 @@
                             <br><span class="text-xs text-gray-500">{{ $transaction->vehicle->registration_number }}</span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ number_format($transaction->litres, 2) }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">${{ number_format($transaction->price_per_litre, 2) }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap font-semibold">${{ number_format($transaction->total_amount, 2) }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">R{{ number_format($transaction->price_per_litre, 2) }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap font-semibold">R{{ number_format($transaction->total_amount, 2) }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                 @if($transaction->status === 'completed') bg-green-100 text-green-800

@@ -14,7 +14,7 @@ use App\Livewire\Driver\FuelHistory;
 use App\Livewire\Driver\Dashboard as DriverDashboard;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // Redirect user to correct dashboard
@@ -48,7 +48,9 @@ Route::middleware(['auth', 'driver'])
     ->group(function () {
         Route::get('/dashboard', DriverDashboard::class)->name('dashboard');
         Route::get('/upload-documents', UploadDocuments::class)->name('upload-documents');
-        Route::get('/vehicles', VehicleList::class)->name('vehicles');
+        Route::get('/vehicles', function () {
+            return view('driver.vehicles');
+        })->name('vehicles');
         Route::get('/fuel-history', FuelHistory::class)->name('fuel-history');
 
         // Requires approval

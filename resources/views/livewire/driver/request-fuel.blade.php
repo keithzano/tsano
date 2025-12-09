@@ -40,7 +40,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Price per Litre ($)</label>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Price per Litre (R)</label>
                     <input type="number" step="0.01" wire:model="price_per_litre" class="w-full p-2 border rounded" placeholder="e.g., 1.50">
                     @error('price_per_litre') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>
@@ -54,7 +54,7 @@
 
             @if($litres && $price_per_litre)
                 <div class="mt-4 p-4 bg-blue-50 rounded">
-                    <p class="text-lg font-semibold">Total Amount: ${{ number_format($litres * $price_per_litre, 2) }}</p>
+                    <p class="text-lg font-semibold">Total Amount: R{{ number_format($litres * $price_per_litre, 2) }}</p>
                 </div>
             @endif
 

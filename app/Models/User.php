@@ -23,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'status',
     ];
 
     /**
@@ -58,7 +60,49 @@ class User extends Authenticatable
         return Str::of($this->name)
             ->explode(' ')
             ->take(2)
-            ->map(fn ($word) => Str::substr($word, 0, 1))
+            ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    // Relationships
+    public function driverDocument()
+    {
+        return $this->hasOne(DriverDocument::class);
+    }
+
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class);
+    }
+
+    public function fuelTransactions()
+    {
+        return $this->hasMany(FuelTransaction::class);
+    }
+
+    // Helper methods
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isDriver()
+    {
+        return $this->role === 'driver';
+    }
+
+    public function isApproved()
+    {
+        return $this->status === 'approved';
+    }
+
+    public function hasApprovedVehicle()
+    {
+        return $this->vehicles()->where('status', 'approved')->exists();
+    }
+
+    public function canRequestFuel()
+    {
+        return $this->isDriver() && $this->isApproved() && $this->hasApprovedVehicle();
     }
 }

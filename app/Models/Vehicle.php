@@ -17,6 +17,9 @@ class Vehicle extends Model
         'year',
         'status',
         'rejection_reason',
+        'registration_document',
+        'insurance_document',
+        'roadworthy_certificate',
     ];
 
     public function user()

@@ -21,6 +21,7 @@ class Dashboard extends Component
             'can_request_fuel' => $user->canRequestFuel(),
         ];
 
-        return view('livewire.driver.dashboard', compact('stats'));
+        return view('livewire.driver.dashboard', compact('stats'))
+            ->layout('layouts.driver');
     }
 }

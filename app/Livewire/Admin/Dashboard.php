@@ -23,6 +23,7 @@ class Dashboard extends Component
             'total_amount' => FuelTransaction::sum('total_amount'),
         ];
 
-        return view('livewire.admin.dashboard', compact('stats'));
+        return view('livewire.admin.dashboard', compact('stats')) // <-- view content here
+            ->layout('layouts.admin'); // <-- layout applied here
     }
 }

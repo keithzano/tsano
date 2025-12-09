@@ -28,6 +28,9 @@ class DriverApproval extends Component
             ->latest()
             ->get();
 
-        return view('livewire.admin.driver-approval', compact('drivers'));
+        return view(
+            'livewire.admin.driver-approval',
+            compact('drivers')
+        )->layout('layouts.admin');
     }
 }

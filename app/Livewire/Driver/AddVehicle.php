@@ -39,6 +39,7 @@ class AddVehicle extends Component
 
     public function render()
     {
-        return view('livewire.driver.add-vehicle');
+        return view('livewire.driver.add-vehicle')
+            ->layout('layouts.driver');
     }
 }

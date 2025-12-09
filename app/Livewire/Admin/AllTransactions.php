@@ -19,6 +19,7 @@ class AllTransactions extends Component
         $totalAmount = FuelTransaction::sum('total_amount');
         $totalLitres = FuelTransaction::sum('litres');
 
-        return view('livewire.admin.all-transactions', compact('transactions', 'totalAmount', 'totalLitres'));
+        return view('livewire.admin.all-transactions', compact('transactions', 'totalAmount', 'totalLitres'))
+            ->layout('layouts.admin');
     }
 }

@@ -41,6 +41,7 @@ class VehicleApproval extends Component
     public function render()
     {
         $vehicles = Vehicle::with('user')->latest()->get();
-        return view('livewire.admin.vehicle-approval', compact('vehicles'));
+        return view('livewire.admin.vehicle-approval', compact('vehicles'))
+            ->layout('layouts.admin');
     }
 }

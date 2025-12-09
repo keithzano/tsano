@@ -23,6 +23,7 @@ class FuelHistory extends Component
             ->latest('transaction_date')
             ->paginate(10);
 
-        return view('livewire.driver.fuel-history', compact('transactions'));
+        return view('livewire.driver.fuel-history', compact('transactions'))
+            ->layout('layouts.driver');
     }
 }

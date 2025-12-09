@@ -61,6 +61,7 @@ class RequestFuel extends Component
             ->where('status', 'approved')
             ->get();
 
-        return view('livewire.driver.request-fuel', compact('approvedVehicles'));
+        return view('livewire.driver.request-fuel', compact('approvedVehicles'))
+            ->layout('layouts.driver');
     }
 }

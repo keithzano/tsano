@@ -16,6 +16,7 @@ class VehicleList extends Component
     public function render()
     {
         $vehicles = auth()->user()->vehicles()->latest()->get();
-        return view('livewire.driver.vehicle-list', compact('vehicles'));
+        return view('livewire.driver.vehicle-list', compact('vehicles'))
+            ->layout('layouts.driver');
     }
 }

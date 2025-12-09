@@ -53,6 +53,7 @@ class UploadDocuments extends Component
 
     public function render()
     {
-        return view('livewire.upload-documents');
+        return view('livewire.upload-documents')
+            ->layout('layouts.driver');
     }
 }
